@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joana Martins — Pinterest Sales Finance Analyst</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: #fff0f1; min-height: 100vh; color: #111; }
+    .navbar { background: #fff; border-bottom: 1px solid #ffd0d3; padding: 14px 28px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 600; color: #E60023; }
+    .p-icon { width: 32px; height: 32px; background: #E60023; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; font-weight: 700; font-family: Georgia, serif; }
+    .nav-links { display: flex; gap: 20px; list-style: none; }
+    .nav-links a { font-size: 14px; color: #555; text-decoration: none; font-weight: 500; }
+    .nav-links a:hover { color: #E60023; }
+    .hero { background: #fff; padding: 60px 28px 40px; text-align: center; border-bottom: 1px solid #ffd0d3; }
+    .hero-avatar { width: 80px; height: 80px; border-radius: 50%; background: #E60023; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 700; color: #fff; margin: 0 auto 18px; font-family: Georgia, serif; }
+    .hero h1 { font-size: 30px; font-weight: 600; color: #111; margin-bottom: 6px; }
+    .hero .subtitle { font-size: 15px; color: #666; margin-bottom: 18px; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 24px; }
+    .tag { background: #ffe0e3; color: #ad1a25; font-size: 12px; font-weight: 500; padding: 5px 14px; border-radius: 999px; }
+    .hero-quote { font-size: 16px; font-style: italic; color: #444; max-width: 520px; margin: 0 auto; line-height: 1.7; border-left: 3px solid #E60023; padding-left: 16px; text-align: left; }
+    .section-title { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #E60023; padding: 32px 28px 14px; }
+    .masonry { columns: 2; column-gap: 14px; padding: 0 28px 28px; }
+    .pin-card { background: #fff; border-radius: 18px; overflow: hidden; margin-bottom: 14px; break-inside: avoid; border: 1px solid #ffd0d3; display: inline-block; width: 100%; }
+    .pin-header { background: #E60023; padding: 18px 20px 14px; color: #fff; display: flex; align-items: flex-start; gap: 12px; }
+    .pin-header.soft { background: #fff8f8; color: #E60023; border-bottom: 1px solid #ffd0d3; }
+    .pin-header.dark { background: #1a1a1a; }
+    .pin-header.coral { background: #ff6b7a; }
+    .pin-header.rose { background: #c9184a; }
+    .pin-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+    .pin-header h3 { font-size: 15px; font-weight: 600; margin-bottom: 3px; line-height: 1.3; }
+    .pin-header .pin-meta { font-size: 12px; opacity: 0.8; }
+    .pin-body { padding: 16px 20px; }
+    .pin-body p { font-size: 13.5px; color: #333; line-height: 1.6; margin-bottom: 10px; }
+    .pin-body p:last-child { margin-bottom: 0; }
+    .achievement { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px dashed #ffd0d3; font-size: 13px; color: #333; }
+    .achievement:last-child { border-bottom: none; }
+    .achievement-dot { width: 8px; height: 8px; border-radius: 50%; background: #E60023; flex-shrink: 0; }
+    .skill-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .skill-pill { background: #fff0f1; border: 1px solid #ffd0d3; border-radius: 10px; padding: 8px 12px; font-size: 12.5px; color: #333; display: flex; align-items: center; gap: 7px; }
+    .skill-pill i { color: #E60023; font-size: 15px; }
+    .stat-row { display: flex; gap: 10px; margin-bottom: 12px; }
+    .stat-box { flex: 1; background: #fff0f1; border-radius: 12px; padding: 12px; text-align: center; }
+    .stat-num { font-size: 20px; font-weight: 700; color: #E60023; display: block; }
+    .stat-label { font-size: 11px; color: #777; margin-top: 2px; }
+    .love-list { list-style: none; padding: 0; }
+    .love-list li { display: flex; align-items: flex-start; gap: 10px; padding: 9px 0; border-bottom: 1px dashed #ffd0d3; font-size: 13px; color: #333; line-height: 1.5; }
+    .love-list li:last-child { border-bottom: none; }
+    .love-list i { color: #E60023; font-size: 16px; margin-top: 1px; flex-shrink: 0; }
+    .timeline-item { padding: 10px 0 10px 18px; border-left: 2px solid #E60023; margin-bottom: 10px; position: relative; }
+    .timeline-item::before { content: ''; position: absolute; left: -5px; top: 14px; width: 8px; height: 8px; background: #E60023; border-radius: 50%; }
+    .timeline-role { font-size: 13px; font-weight: 600; color: #111; }
+    .timeline-org { font-size: 12px; color: #E60023; font-weight: 500; margin: 1px 0 4px; }
+    .timeline-desc { font-size: 12.5px; color: #555; line-height: 1.5; }
+    .cta-card { background: #E60023; border-radius: 18px; padding: 28px 24px; margin: 0 28px 40px; text-align: center; color: #fff; }
+    .cta-card h3 { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+    .cta-card p { font-size: 14px; opacity: 0.9; margin-bottom: 18px; line-height: 1.6; }
+    .cta-links { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .cta-btn { background: #fff; color: #E60023; border: none; border-radius: 999px; padding: 10px 22px; font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+    .cta-btn:hover { background: #fff0f1; }
+    .footer { text-align: center; padding: 16px; font-size: 12px; color: #aaa; border-top: 1px solid #ffd0d3; background: #fff; }
+    @media (max-width: 600px) {
+      .masonry { columns: 1; padding: 0 16px 16px; }
+      .hero { padding: 40px 16px 28px; }
+      .nav-links { display: none; }
+      .cta-card { margin: 0 16px 28px; }
+      .section-title { padding: 24px 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo">
+      <div class="p-icon">P</div>
+      Joana Martins
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero" id="about">
+    <div class="hero-avatar">JM</div>
+    <h1>Joana Martins</h1>
+    <p class="subtitle">Sales Finance Analyst · KPMG Luxembourg · Nova SBE</p>
+    <div class="hero-tags">
+      <span class="tag">Financial Modelling</span>
+      <span class="tag">Revenue Forecasting</span>
+      <span class="tag">AI-powered Analytics</span>
+      <span class="tag">Content Creator</span>
+      <span class="tag">Lifelong Pinner</span>
+    </div>
+    <p class="hero-quote">
+      "Pinterest was my very first social media — the platform that taught me creativity has no limits. Today I use it daily as a content creator, and I want to help protect that magic through world-class financial strategy."
+    </p>
+  </div>
+
+  <p class="section-title" id="experience">My board</p>
+
+  <div class="masonry">
+
+    <div class="pin-card">
+      <div class="pin-header">
+        <span class="pin-icon"><i class="ti ti-heart" aria-hidden="true"></i></span>
+        <div>
+          <h3>Why Pinterest?</h3>
+          <div class="pin-meta">My origin story</div>
+        </div>
+      </div>
+      <div class="pin-body">
+        <p>Pinterest was the first platform I ever joined — before Instagram, before TikTok, before anything. It taught me that the internet could be a space for genuine inspiration, not just noise.</p>
+        <p>Today, as an active content creator, I return to Pinterest every single day. It's where I build mood boards, plan aesthetics, and find ideas for the audience I'm building. I'm not just a candidate — I'm a real Pinner.</p>
+      </div>
+    </div>
+
+    <div class="pin-card">
+      <div class="pin-header coral">
+        <span class="pin-icon"><i class="ti ti-building-bank" aria-hidden="true"></i></span>
+        <div>
+          <h3>KPMG Luxembourg</h3>
+          <div class="pin-meta">Oct 2025 – Present · Junior Auditor</div>
+        </div>
+      </div>
+      <div class="pin-body">
+        <div class="achievement"><div class="achievement-dot"></div>Financial models & variance analyses across 5+ international accounts</div>
+        <div class="achievement"><div class="achievement-dot"></div>6+ industries: Lux GAAP, US GAAP, IFRS</div>
+        <div class="achievement"><div class="achievement-dot"></div>AI tools (Claude, ChatGPT) to automate reporting & dashboards</div>
+        <div class="achievement"><div class="achievement-dot"></div>Advanced Excel: XLOOKUP, dynamic arrays, pivot tables</div>
+      </div>
+    </div>
+
+    <div class="pin-card">
+      <div class="pin-header dark">
+        <span class="pin-icon"><i class="ti ti-chart-bar" aria-hidden="true"></i></span>
+        <div>
+          <h3>By the numbers</h3>
+          <div class="pin-meta">Career highlights</div>
+        </div>
+      </div>
+      <div class="pin-body">
+        <div class="stat-row">
+          <div class="stat-box"><span class="stat-num">5+</span><div class="stat-label">international accounts</div></div>
+          <div class="stat-box"><span class="stat-num">6+</span><div class="stat-label">industries covered</div></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-box"><span class="stat-num">€33M</span><div class="stat-label">sustainability investment reported</div></div>
+          <div class="stat-box"><span class="stat-num">€12K</span><div class="stat-label">raised through events</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pin-card">
+      <div class="pin-header soft">
+        <span class="pin-icon"><i class="ti ti-clock" aria-hidden="true"></i></span>
+        <div>
+          <h3>Career timeline</h3>
+          <div class="pin-meta">Experience at a glance</div>
+        </div>
+      </div>
+      <div class="pin-body">
+        <div class="timeline-item">
+          <div class="timeline-role">Junior Auditor</div>
+          <div class="timeline-org">KPMG Luxembourg</div>
+          <div class="timeline-desc">Financial modelling, dashboards, AI-enhanced analysis across international clients.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-role">Financial Analyst</div>
+          <div class="timeline-org">Social Investment Fund</div>
+          <div class="timeline-desc">Investment pitches, macroeconomic analyses, portfolio strategy.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-role">Consulting Intern</div>
+          <div class="timeline-org">317 Consulting</div>
+          <div class="timeline-desc">Supported €33.4M sustainability investment — financial analysis & stakeholder reporting.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-role">Event Organiser</div>
+          <div class="timeline-org">Nova Thirst Project</div>
+          <div class="timeline-desc">Planned 3 fundraising events, raised €12K for global water initiatives.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pin-card" id="skills">
+      <div class="pin-header rose">
+        <span class="pin-icon"><i class="ti ti-sparkles" aria-hidden="true"></i></span>
+        <div>
+          <h3>What I bring to Pinterest</h3>
+          <div class="pin-meta">The fit, explained</div>
+        </div>
+      </div>
+      <div class="pin-body">
+        <ul class="love-list">
+          <li><i class="ti ti-chart-line" aria-hidden="true"></i>I build revenue models and KPI dashboards that make complex data feel simple for executives.</li>
+          <li><i class="ti ti-robot" aria-hidden="true"></i>I already use Claude and ChatGPT daily to automate analysis — AI is part of how I work, not a buzzword.</li>
+          <li><i class="ti ti-pin" aria-hidden="true"></i>I understand Pinterest's users because I am one — a creator who depends on the platform every week to find inspiration and plan content.</li>
+          <li><i class="ti ti-globe" aria-hidden="true"></i>I've worked across IFRS, Lux GAAP & US GAAP — global standards, global mindset.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pin-card">
+      <div class="pin-header soft">
+        <span class="pin-icon"><i class="ti ti-tool" aria-hidden="true"></i></span>
+        <div>
+          <h3>Skills & tools</h3>
+          <div class="pin-meta">My toolkit</div>
+        </div>
+      </div>
+      <div class="pin-body">
+        <div class="skill-grid">
+          <div class="skill-pill"><i class="ti ti-table" aria-hidden="true"></i>Advanced Excel</div>
+          <div class="skill-pill"><i class="ti ti-brand-python" aria-hidden="true"></i>Python & R</div>
+          <div class="skill-pill"><i class="ti ti-cpu" aria-hidden="true"></i>Claude / ChatGPT</div>
+          <div class="skill-pill"><i class="ti ti-chart-dots" aria-hidden="true"></i>Power BI</div>
+          <div class="skill-pill"><i class="ti ti-presentation" aria-hidden="true"></i>Google Slides</div>
+          <div class="skill-pill"><i class="ti ti-clipboard-data" aria-hidden="true"></i>Copilot / Perplexity</div>
+          <div class="skill-pill"><i class="ti ti-database" aria-hidden="true"></i>SQL (basic)</div>
+          <div class="skill-pill"><i class="ti ti-file-analytics" aria-hidden="true"></i>Financial Modelling</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pin-card">
+      <div class="pin-header">
+        <span class="pin-icon"><i class="ti ti-school" aria-hidden="true"></i></span>
+        <div>
+          <h3>Education</h3>
+          <div class="pin-meta">Nova School of Business & Economics</div>
+        </div>
+      </div>
+      <div class="pin-body">
+        <div class="achievement"><div class="achievement-dot"></div>International Master's in Management — Financial Management specialisation (2024–2026)</div>
+        <div class="achievement"><div class="achievement-dot"></div>BSc Economics (2021–2024)</div>
+        <div class="achievement"><div class="achievement-dot"></div>Courses: Financial Management, Financial Statement Analysis, Applied Corporate Finance</div>
+      </div>
+    </div>
+
+    <div class="pin-card">
+      <div class="pin-header soft">
+        <span class="pin-icon"><i class="ti ti-language" aria-hidden="true"></i></span>
+        <div>
+          <h3>Languages & interests</h3>
+          <div class="pin-meta">The full picture</div>
+        </div>
+      </div>
+      <div class="pin-body">
+        <ul class="love-list">
+          <li><i class="ti ti-flag" aria-hidden="true"></i>Portuguese — native &nbsp;·&nbsp; English — advanced &nbsp;·&nbsp; French — elementary</li>
+          <li><i class="ti ti-camera" aria-hidden="true"></i>Content creation — building and growing an audience across platforms</li>
+          <li><i class="ti ti-swim" aria-hidden="true"></i>Swimming, reading, travelling</li>
+          <li><i class="ti ti-pin" aria-hidden="true"></i>Avid Pinner since day one — Pinterest was my first ever social media</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cta-card" id="contact">
+    <h3>Let's create something great together</h3>
+    <p>I'm applying for the Sales Finance Analyst role at Pinterest.<br>Reach out and let's talk about how I can help Pinterest grow.</p>
+    <div class="cta-links">
+      <a class="cta-btn" href="mailto:jjoanarmartins@gmail.com"><i class="ti ti-mail" aria-hidden="true"></i>jjoanarmartins@gmail.com</a>
+      <a class="cta-btn" href="https://www.linkedin.com/in/joanaribeiromartins" target="_blank"><i class="ti ti-brand-linkedin" aria-hidden="true"></i>LinkedIn</a>
+      <a class="cta-btn" href="tel:+352661464157"><i class="ti ti-phone" aria-hidden="true"></i>+352 661 464 157</a>
+    </div>
+  </div>
+
+  <div class="footer">Made with ♥ by Joana Martins · Inspired by Pinterest</div>
+
+</body>
+</html>
